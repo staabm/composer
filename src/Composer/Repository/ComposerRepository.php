@@ -331,9 +331,17 @@ class ComposerRepository extends ArrayRepository implements ConfigurableReposito
             if ($cacheKey) {
                 if (!$useLastModifiedCheck && $hash && $this->cache->sha256($cacheKey) === $hash) {
                     $packages = json_decode($this->cache->read($cacheKey), true);
+                    // fake an up 2 date cache. comment this line after you trigger `composer update` once
+                    file_put_contents(md5($cacheKey), "<?php\n return ". var_export($packages, true). ";");
+                    // after cache was built, comment the above 2 lines and un-comment the next one
+                    $packages = require md5($cacheKey);
                 } elseif ($useLastModifiedCheck) {
                     if ($contents = $this->cache->read($cacheKey)) {
                         $contents = json_decode($contents, true);
+                        // fake an up 2 date cache. comment this line after you trigger `composer update` once
+                        file_put_contents(md5($cacheKey), "<?php\n return ". var_export($contents, true). ";");
+                        // after cache was built, comment the above 2 lines and un-comment the next one
+                        $contents = require md5($cacheKey);
                         if (isset($contents['last-modified'])) {
                             $response = $this->fetchFileIfLastModified($url, $cacheKey, $contents['last-modified']);
                             if (true === $response) {
@@ -584,6 +592,10 @@ class ComposerRepository extends ArrayRepository implements ConfigurableReposito
                 $cacheKey = str_replace(array('%hash%','$'), '', $include);
                 if ($this->cache->sha256($cacheKey) === $metadata['sha256']) {
                     $includedData = json_decode($this->cache->read($cacheKey), true);
+                    // fake an up 2 date cache. comment this line after you trigger `composer update` once
+                    file_put_contents(md5($cacheKey), "<?php\n return ". var_export($includedData, true). ";");
+                    // after cache was built, comment the above 2 lines and un-comment the next one
+                    $includedData = require md5($cacheKey);
                 } else {
                     $includedData = $this->fetchFile($url, $cacheKey, $metadata['sha256']);
                 }
@@ -620,6 +632,10 @@ class ComposerRepository extends ArrayRepository implements ConfigurableReposito
             foreach ($data['includes'] as $include => $metadata) {
                 if ($this->cache->sha1($include) === $metadata['sha1']) {
                     $includedData = json_decode($this->cache->read($include), true);
+                    // fake an up 2 date cache. comment this line after you trigger `composer update` once
+                    file_put_contents(md5($include), "<?php\n return ". var_export($includedData, true). ";");
+                    // after cache was built, comment the above 2 lines and un-comment the next one
+                    $includedData = require md5($include);
                 } else {
                     $includedData = $this->fetchFile($include);
                 }
