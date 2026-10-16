@@ -1,0 +1,14 @@
+src/Composer/DependencyResolver/RuleWatchGraph.php
+  h_53f8f6db02589e 44-45,49,58
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "7477ee5ceb34f7d23e1e1ba779f3873f6883b7f4",
+  "prompts": {},
+  "humans": {
+    "h_53f8f6db02589e": {
+      "author": "Markus Staab <markus.staab@redaxo.de>"
+    }
+  }
+}
