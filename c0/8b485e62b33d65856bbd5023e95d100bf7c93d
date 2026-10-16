@@ -1,0 +1,14 @@
+src/Composer/DependencyResolver/PoolOptimizer.php
+  h_b7e499c8c7b40c 198,200,214,223
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "c08b485e62b33d65856bbd5023e95d100bf7c93d",
+  "prompts": {},
+  "humans": {
+    "h_b7e499c8c7b40c": {
+      "author": "Markus Staab <47448731+clxmstaab@users.noreply.github.com>"
+    }
+  }
+}
