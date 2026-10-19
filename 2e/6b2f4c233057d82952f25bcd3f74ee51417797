@@ -1,0 +1,19 @@
+src/Composer/DependencyResolver/Solver.php
+  s_58178b5caf8753::t_c7867a00cb043e 701
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "2e6b2f4c233057d82952f25bcd3f74ee51417797",
+  "prompts": {},
+  "sessions": {
+    "s_58178b5caf8753": {
+      "agent_id": {
+        "tool": "github-copilot-jetbrains",
+        "id": "1791966921755",
+        "model": "unknown"
+      },
+      "human_author": null
+    }
+  }
+}
